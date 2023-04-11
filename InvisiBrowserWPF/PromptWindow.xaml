@@ -1,0 +1,17 @@
+﻿<controls:MicaWindow x:Class="InvisiBrowserWPF.PromptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
+        xmlns:local="clr-namespace:InvisiBrowserWPF"
+        mc:Ignorable="d"
+        Title="PromptWindow" Height="345" Width="279" WindowStartupLocation="CenterScreen" TitleBarType="WinUI" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid>
+        <StackPanel>
+            <Label Content="URL" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center"/>
+            <controls:TextBox Name="UrlBox" TextWrapping="Wrap" Text="example.com" Margin="5,0,5,0"/>
+        </StackPanel>
+        <controls:Button Name="OpenButton" Click="OpenButton_OnClick" Content="Open" VerticalAlignment="Bottom" Height="30" Margin="5,5,5,5"/>
+    </Grid>
+</controls:MicaWindow>
