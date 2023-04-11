@@ -11,6 +11,20 @@
         <StackPanel>
             <Label Content="URL" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center"/>
             <controls:TextBox Name="UrlBox" TextWrapping="Wrap" Text="example.com" Margin="5,0,5,0"/>
+            <Label Content="Window Size" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center"/>
+            <Grid Margin="5 0 5 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <controls:TextBox Grid.Column="0" Name="WidthBox" Text="200"/>
+                <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">X</Label>
+                <controls:TextBox Grid.Column="2" Name="HeightBox" Text="200"/>
+            </Grid>
         </StackPanel>
         <controls:Button Name="OpenButton" Click="OpenButton_OnClick" Content="Open" VerticalAlignment="Bottom" Height="30" Margin="5,5,5,5"/>
     </Grid>
