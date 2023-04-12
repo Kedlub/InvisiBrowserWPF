@@ -6,8 +6,13 @@
         xmlns:controls="clr-namespace:MicaWPF.Controls;assembly=MicaWPF"
         xmlns:local="clr-namespace:InvisiBrowserWPF"
         mc:Ignorable="d"
-        Title="PromptWindow" Height="345" Width="279" WindowStartupLocation="CenterScreen" TitleBarType="WinUI" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="InvisiBrowser" Height="345" Width="279" WindowStartupLocation="CenterScreen" TitleBarType="WinUI" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
         <StackPanel>
             <Label Content="URL" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center"/>
             <controls:TextBox Name="UrlBox" TextWrapping="Wrap" Text="example.com" Margin="5,0,5,0"/>
@@ -26,6 +31,7 @@
                 <controls:TextBox Grid.Column="2" Name="HeightBox" Text="200"/>
             </Grid>
         </StackPanel>
-        <controls:Button Name="OpenButton" Click="OpenButton_OnClick" Content="Open" VerticalAlignment="Bottom" Height="30" Margin="5,5,5,5"/>
+        <TextBlock Grid.Row="1" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" Text="Drag this window to the position that you want to show the browser at"/>
+        <controls:Button Grid.Row="2" Name="OpenButton" Click="OpenButton_OnClick" Content="Open" VerticalAlignment="Bottom" Height="30" Margin="5,5,5,5"/>
     </Grid>
 </controls:MicaWindow>
