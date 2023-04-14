@@ -1,14 +1,17 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 using MicaWPF.Controls;
+using Microsoft.Web.WebView2.Core;
 
 namespace InvisiBrowserWPF;
 
 public partial class BrowserWindow : Window
 {
+    public static string CacheFolderPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "InvisiBrowserWPF");
     public const int WM_NCLBUTTONDOWN = 0xA1;
     public const int HT_CAPTION = 0x2;
 
@@ -32,11 +35,13 @@ public partial class BrowserWindow : Window
             url = "https://" + url;
         }
         _url = url;
-        Browser.Source = new System.Uri(_url);
     }
 
     private async void BrowserWindow_OnLoaded(object sender, RoutedEventArgs e)
     {
+        var webView2Environment = await CoreWebView2Environment.CreateAsync(null, CacheFolderPath);
+        await Browser.EnsureCoreWebView2Async(webView2Environment);
+        Browser.Source = new System.Uri(_url);
     }
 
     private void BrowserWindow_OnClosed(object? sender, EventArgs e)
